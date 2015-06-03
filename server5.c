@@ -34,7 +34,7 @@ int main()
 	FD_SET(server_sockfd, &readfds);
 	//Ждём запросов. Если select вернёт < 1, то всё плохо
 	while(1) {
-		char ch;
+		char ch[10];
 		int fd;
 		int nread;
 	
@@ -74,9 +74,9 @@ int main()
 }
 					else {
 						read(fd, &ch, 1);
-						sleep(5);
+						sleep(2);
 						printf("serving client on fd %d\n", fd);
-						ch++;
+						//ch++;
 						write(fd, &ch, 1);
 					}
 				}

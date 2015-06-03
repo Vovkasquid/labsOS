@@ -12,7 +12,7 @@ int main()
 	int len;
 	struct sockaddr_in address;
 	int result;
-	char ch = 'A';
+	char ch[10] = "abcd";
 	//Создаём соект клиента
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	//Присваиваем имя сокету по согласованию с сервом
@@ -30,7 +30,7 @@ int main()
 	//Write and read using sockfd;
 	write(sockfd, &ch, 1);
 	read(sockfd, &ch, 1);
-	printf("char from server = %c\n", ch);
+	printf("char from server = %s\n", ch);
 	close(sockfd);
 	exit(0);
 }
